@@ -9,7 +9,8 @@
         "dist/**/*.d.ts"
     ],
     "scripts": {
-        "build": "tsc --emitDeclarationOnly --declaration"
+        "build": "tsc --emitDeclarationOnly --declaration",
+        "prepublishOnly": "bun run build"
     },
     "keywords": [
         "trafiklab",
