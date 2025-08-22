@@ -1,0 +1,39 @@
+{
+    "name": "@types/trafiklab",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "TypeScript definitions for Trafiklab API",
+    "main": "dist/index.d.ts",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*.d.ts"
+    ],
+    "scripts": {
+        "build": "tsc --emitDeclarationOnly --declaration"
+    },
+    "keywords": [
+        "trafiklab",
+        "typescript",
+        "types"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "Johnie Hjelm <johnie@hjelm.im>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnie/trafiklab-types.git"
+    },
+    "bugs": {
+        "url": "https://github.com/johnie/trafiklab-types/issues"
+    },
+    "homepage": "https://github.com/johnie/trafiklab-types#readme",
+    "devDependencies": {
+        "@types/bun": "latest",
+        "@types/node": "^24.3.0"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    }
+}
