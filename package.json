@@ -10,16 +10,16 @@
     ],
     "scripts": {
         "build": "tsc --emitDeclarationOnly --declaration",
-        "prepublishOnly": "bun run build"
+        "ci": "$npm_execpath run build && $npm_execpath run check && $npm_execpath run test",
+        "prepublishOnly": "bun run check && bun run build",
+        "check": "biome check --write",
+        "test": "vitest run"
     },
     "keywords": [
         "trafiklab",
         "typescript",
         "types"
     ],
-    "publishConfig": {
-        "access": "public"
-    },
     "author": "Johnie Hjelm <johnie@hjelm.im>",
     "license": "MIT",
     "repository": {
@@ -31,8 +31,10 @@
     },
     "homepage": "https://github.com/johnie/trafiklab-types#readme",
     "devDependencies": {
-        "@types/bun": "latest",
-        "@types/node": "^24.3.0"
+        "@biomejs/biome": "2.2.2",
+        "@types/node": "^24.3.0",
+        "msw": "2.10.5",
+        "vitest": "3.2.4"
     },
     "peerDependencies": {
         "typescript": "^5"

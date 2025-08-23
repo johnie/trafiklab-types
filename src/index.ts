@@ -200,15 +200,10 @@ export namespace StopLookup {
 }
 
 export namespace DepartureBoard {
-  export interface GetCurrentDeparturesParams
-    extends StopIdParam,
-      ApiKeyParam {}
+  export interface GetCurrentDeparturesParams extends StopIdParam, ApiKeyParam {}
   export interface GetCurrentDeparturesResponse extends DeparturesResponse {}
 
-  export interface GetDeparturesAtTimeParams
-    extends StopIdParam,
-      DateTimeParam,
-      ApiKeyParam {}
+  export interface GetDeparturesAtTimeParams extends StopIdParam, DateTimeParam, ApiKeyParam {}
   export interface GetDeparturesAtTimeResponse extends DeparturesResponse {}
 }
 
@@ -216,10 +211,7 @@ export namespace ArrivalBoard {
   export interface GetCurrentArrivalsParams extends StopIdParam, ApiKeyParam {}
   export interface GetCurrentArrivalsResponse extends ArrivalsResponse {}
 
-  export interface GetArrivalsAtTimeParams
-    extends StopIdParam,
-      DateTimeParam,
-      ApiKeyParam {}
+  export interface GetArrivalsAtTimeParams extends StopIdParam, DateTimeParam, ApiKeyParam {}
   export interface GetArrivalsAtTimeResponse extends ArrivalsResponse {}
 }
 
@@ -229,37 +221,37 @@ export namespace ArrivalBoard {
 
 export interface TrafikLabApiEndpoints {
   /** List stop groups (matching a name). */
-  "GET /stops/name/{searchValue}": {
+  'GET /stops/name/{searchValue}': {
     params: StopLookup.GetStopsByNameParams;
     response: StopLookup.GetStopsByNameResponse;
   };
 
   /** List all stop groups. */
-  "GET /stops/list": {
+  'GET /stops/list': {
     params: StopLookup.GetAllStopsParams;
     response: StopLookup.GetAllStopsResponse;
   };
 
   /** Get Departure Information (Current). */
-  "GET /departures/{stopId}": {
+  'GET /departures/{stopId}': {
     params: DepartureBoard.GetCurrentDeparturesParams;
     response: DepartureBoard.GetCurrentDeparturesResponse;
   };
 
   /** Get Departure Information (Specific Time). */
-  "GET /departures/{stopId}/{dateTime}": {
+  'GET /departures/{stopId}/{dateTime}': {
     params: DepartureBoard.GetDeparturesAtTimeParams;
     response: DepartureBoard.GetDeparturesAtTimeResponse;
   };
 
   /** Get Arrival Information (Current). */
-  "GET /arrivals/{stopId}": {
+  'GET /arrivals/{stopId}': {
     params: ArrivalBoard.GetCurrentArrivalsParams;
     response: ArrivalBoard.GetCurrentArrivalsResponse;
   };
 
   /** Get Arrival Information (Specific Time). */
-  "GET /arrivals/{stopId}/{dateTime}": {
+  'GET /arrivals/{stopId}/{dateTime}': {
     params: ArrivalBoard.GetArrivalsAtTimeParams;
     response: ArrivalBoard.GetArrivalsAtTimeResponse;
   };
@@ -270,20 +262,18 @@ export interface TrafikLabApiEndpoints {
 // ============================================================================
 
 /** Extract endpoint method and path from a route string */
-export type ExtractMethod<T extends keyof TrafikLabApiEndpoints> =
-  T extends `${infer Method} ${string}` ? Method : never;
+export type ExtractMethod<T extends keyof TrafikLabApiEndpoints> = T extends `${infer Method} ${string}`
+  ? Method
+  : never;
 
 /** Extract path from a route string */
-export type ExtractPath<T extends keyof TrafikLabApiEndpoints> =
-  T extends `${string} ${infer Path}` ? Path : never;
+export type ExtractPath<T extends keyof TrafikLabApiEndpoints> = T extends `${string} ${infer Path}` ? Path : never;
 
 /** Get parameters type for a specific endpoint */
-export type EndpointParams<T extends keyof TrafikLabApiEndpoints> =
-  TrafikLabApiEndpoints[T]["params"];
+export type EndpointParams<T extends keyof TrafikLabApiEndpoints> = TrafikLabApiEndpoints[T]['params'];
 
 /** Get response type for a specific endpoint */
-export type EndpointResponse<T extends keyof TrafikLabApiEndpoints> =
-  TrafikLabApiEndpoints[T]["response"];
+export type EndpointResponse<T extends keyof TrafikLabApiEndpoints> = TrafikLabApiEndpoints[T]['response'];
 
 // ============================================================================
 // Configuration Types
@@ -303,26 +293,25 @@ export interface TrafikLabApiConfig {
 // ============================================================================
 
 export const TRANSPORT_MODES = {
-  BUS: "BUS",
-  METRO: "METRO",
-  TRAIN: "TRAIN",
-  TRAM: "TRAM",
-  FERRY: "FERRY",
-  SHIP: "SHIP",
+  BUS: 'BUS',
+  METRO: 'METRO',
+  TRAIN: 'TRAIN',
+  TRAM: 'TRAM',
+  FERRY: 'FERRY',
+  SHIP: 'SHIP',
 } as const;
 
-export type TransportMode =
-  (typeof TRANSPORT_MODES)[keyof typeof TRANSPORT_MODES];
+export type TransportMode = (typeof TRANSPORT_MODES)[keyof typeof TRANSPORT_MODES];
 
 // ============================================================================
 // Alert Type Constants
 // ============================================================================
 
 export const ALERT_TYPES = {
-  MAINTENANCE: "MAINTENANCE",
-  DISRUPTION: "DISRUPTION",
-  INFORMATION: "INFORMATION",
-  WARNING: "WARNING",
+  MAINTENANCE: 'MAINTENANCE',
+  DISRUPTION: 'DISRUPTION',
+  INFORMATION: 'INFORMATION',
+  WARNING: 'WARNING',
 } as const;
 
 export type AlertType = (typeof ALERT_TYPES)[keyof typeof ALERT_TYPES];
