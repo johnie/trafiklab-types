@@ -31,7 +31,6 @@
     },
     "homepage": "https://github.com/johnie/trafiklab-types#readme",
     "devDependencies": {
-        "@types/bun": "latest",
         "@types/node": "^24.3.0"
     },
     "peerDependencies": {
