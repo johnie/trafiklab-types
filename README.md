@@ -142,16 +142,16 @@ type DepartureResponse = EndpointResponse<'GET /departures/{stopId}'>;
 
 ```bash
 # Install dependencies
-bun install
+pnpm install
 
 # Run tests  
-bun test
+pnpm test
 
 # Build types
-bun run build
+pnpm run build
 
 # Lint and format
-bun run check
+pnpm run check
 ```
 
 ## Contributing
