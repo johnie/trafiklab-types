@@ -10,6 +10,7 @@
     ],
     "scripts": {
         "build": "tsc --emitDeclarationOnly --declaration",
+        "ci": "$npm_execpath run build && $npm_execpath run check && $npm_execpath run test",
         "prepublishOnly": "bun run check && bun run build",
         "check": "biome check --write",
         "test": "vitest run"
