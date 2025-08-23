@@ -17,9 +17,6 @@
         "typescript",
         "types"
     ],
-    "publishConfig": {
-        "access": "public"
-    },
     "author": "Johnie Hjelm <johnie@hjelm.im>",
     "license": "MIT",
     "repository": {
