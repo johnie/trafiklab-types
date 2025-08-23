@@ -10,7 +10,9 @@
     ],
     "scripts": {
         "build": "tsc --emitDeclarationOnly --declaration",
-        "prepublishOnly": "bun run build"
+        "prepublishOnly": "bun run check && bun run build",
+        "check": "biome check --write",
+        "test": "vitest run"
     },
     "keywords": [
         "trafiklab",
@@ -28,7 +30,10 @@
     },
     "homepage": "https://github.com/johnie/trafiklab-types#readme",
     "devDependencies": {
-        "@types/node": "^24.3.0"
+        "@biomejs/biome": "2.2.2",
+        "@types/node": "^24.3.0",
+        "msw": "2.10.5",
+        "vitest": "3.2.4"
     },
     "peerDependencies": {
         "typescript": "^5"
